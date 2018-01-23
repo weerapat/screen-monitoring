@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {
+    "guacamole-common-js": "^0.9.13-incubating-d"
+  }
+}
