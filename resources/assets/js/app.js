@@ -1,52 +1,6 @@
-<html>
+import * as Guacamole from 'guacamole-common-js';
 
-<head>
-	<title>Gua </title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <script type="text/javascript" src="http://guacamole.rabbit/guacamole/webjars/jquery/2.1.3/dist/jquery.min.js"></script>
-
-    <!-- Guacamole -->
-    <script type="text/javascript" src="/guacamole-common.js"></script>
-
-    <style>
-        .monitor-thumbnails > div {
-            margin: auto;
-            z-index: 9;
-        }
-    </style>
-</head>
-
-<body>
-
-<div id="token"></div>
-
-<!-- Display -->
-
-
-<div class="container">
-    <div class="row align-items-center">
-        <div class="col">
-            <div id="display" class="monitor-thumbnails" data-id="9"></div>
-        </div>
-        <div class="col">
-            <div id="display-2" class="monitor-thumbnails" data-id="8"></div>
-        </div>
-    </div>
-</div>
-
-<div id="display-fullscreen"></div>
-
-
-
-<!-- Keyboard -->
-<div id="keyboard"></div>
-
-<!-- Init -->
-<script type="text/javascript"> /* <![CDATA[ */
-
+console.log(Guacamole);
 
 let agentMachines = [
     {
@@ -135,10 +89,10 @@ $.post( "http://guacamole.rabbit/guacamole/api/tokens", { username : 'guacadmin'
 
     //var apiToken = data.authToken;
 
-	// Mock params
-	/**
-	 *
-	 * GUAC_DATA_SOURCE:mysql
+    // Mock params
+    /**
+     *
+     * GUAC_DATA_SOURCE:mysql
      GUAC_ID:9
      GUAC_TYPE:c
      GUAC_WIDTH:2490
@@ -149,9 +103,9 @@ $.post( "http://guacamole.rabbit/guacamole/api/tokens", { username : 'guacadmin'
      GUAC_IMAGE:image/jpeg
      GUAC_IMAGE:image/png
      GUAC_IMAGE:image/webp
-	 * ID 8 = PC 3
-	 * ID 9 = PC 2
-	**/
+     * ID 8 = PC 3
+     * ID 9 = PC 2
+     **/
 
     authToken = data.authToken;
 
@@ -181,11 +135,3 @@ function switchView(guacId) {
 window.onunload = function() {
     guacFull.disconnect();
 }
-
-/* ]]> */ </script>
-
-
-
-</body>
-
-</html>
