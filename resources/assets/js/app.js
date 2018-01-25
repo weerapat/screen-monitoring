@@ -1,5 +1,4 @@
 window.$ = window.jQuery = require('jquery');
-
 import * as Guacamole from 'guacamole-common-js';
 
 let authToken = null;
@@ -28,7 +27,6 @@ let Monitoring = {
                 authToken = data.authToken;
 
                 let guac = [];
-
                 $.each(agentMachines, function(i, agent) {
                     guac[i] = new Guacamole.Client(
                         new Guacamole.WebSocketTunnel('ws://guacamole.rabbit/guacamole/websocket-tunnel')
@@ -45,7 +43,7 @@ let Monitoring = {
                 });
 
                 // temporary connection
-                guacFull.connect(`GUAC_DATA_SOURCE=mysql&GUAC_TYPE=c&GUAC_ID=8&GUAC_WIDTH=250&GUAC_HEIGHT=350&GUAC_DPI=192&GUAC_AUDIO=audio/L8&token=${authToken}`);
+                guacFull.connect(`GUAC_DATA_SOURCE=mysql&GUAC_TYPE=c&GUAC_ID=8&token=${authToken}`);
             }
         );
     }
@@ -69,6 +67,7 @@ mouse.onmousedown =
         mouse.onmousemove = function(mouseState) {
             guacFull.sendMouseState(mouseState);
         };
+// End mouse
 
 // Keyboard
 let keyboard = new Guacamole.Keyboard(document);
@@ -81,12 +80,6 @@ keyboard.onkeyup = function(keysym) {
     guacFull.sendKeyEvent(0, keysym);
 };
 
-// End Fullscreenset
-
-// End mouse
-
-
-
 $('.monitor-thumbnails').on('click', function () {
     let guactId = $(this).data('id');
     switchView(guactId);
@@ -94,9 +87,7 @@ $('.monitor-thumbnails').on('click', function () {
 
 function switchView(guacId) {
     guacFull.disconnect();
-    guacFull.connect(`GUAC_DATA_SOURCE=mysql&GUAC_TYPE=c&GUAC_ID=${guacId}&GUAC_WIDTH=250&GUAC_HEIGHT=350&GUAC_DPI=192&GUAC_AUDIO=audio/L8&token=${authToken}`);
-
-    //$('#display-monitor').fadeIn();
+    guacFull.connect(`GUAC_DATA_SOURCE=mysql&GUAC_TYPE=c&GUAC_ID=${guacId}&token=${authToken}`);
 }
 
 /**
