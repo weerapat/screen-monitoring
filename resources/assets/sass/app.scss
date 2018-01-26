@@ -3,11 +3,6 @@
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
 
-.monitor-thumbnails > div {
-    margin: auto;
-    z-index: 9;
-}
-
 .thumbnails {
     display: flex;
     flex-wrap: wrap;

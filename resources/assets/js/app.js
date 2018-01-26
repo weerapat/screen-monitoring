@@ -100,7 +100,7 @@ function switchView(guacId) {
  * @param stateNumber
  */
 guacFull.onstatechange = function (stateNumber) {
-    console.log(stateNumber);
+    // console.log(stateNumber);
 };
 
 // Disconnect on close
